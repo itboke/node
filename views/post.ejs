@@ -45,20 +45,30 @@
         padding: 15px 4px;
         font-size: 16px;
     }
+    .category{
+        padding-bottom: 10px;
+    }
 </style>
 </head>
 <body>
     <div class="article">
         <h1>发表文章</h1>
         <br>
-        <form action="">
+        <form method="post">
             <div>
                 <label for="">标题</label><br>
-                <input type="text" class="title">
+                <input type="text" class="title" name="title">
+            </div>
+            <div class="category">
+                <label for="">文章目录</label>
+                <select name="category">
+                    <option value="茶余饭后">茶余饭后</option>
+                    <option value="好福利">好福利</option>
+                </select>
             </div>
             <div>
                 <label for="">正文</label><br>
-                <textarea name="" id="" cols="80" rows="20"></textarea>
+                <textarea  id="" cols="80" rows="15" name="content"></textarea>
             </div>
             <div>
                 <input type="submit" value="发表">
@@ -67,16 +77,17 @@
         <div class="menu">
            <ul>
                <li>
-                   <a href="">首页</a>
+                   <a href="/">首页</a>
                </li>
                <li>
-                   <a href="">发表</a>
+                   <a href="/post">发表</a>
                </li>
                <li>
-                   <a href="">退出</a>
+                   <a href="/out">退出</a>
                </li>
            </ul>
         </div>
     </div>
+    <script src="js/admin.js"></script>
 </body>
 </html>

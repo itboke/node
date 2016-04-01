@@ -58,6 +58,28 @@ Blog.prototype.details = function(strSql,cb){
       cb(details);
     }
   })
+};
+Blog.prototype.login = function(strSql,cb){
+  var strSql  = strSql;
+  connection.query(strSql,function(err,results,fields){
+    if(err){
+      throw err;
+    }
+    if(results){
+      cb();
+    }
+  })
+};
+Blog.prototype.post = function(strSql,res){
+  var strSql = '' || strSql;
+  connection.query(strSql,function(err,results,fileds){
+    if(err){
+      throw err;
+    }
+    if(results){
+      res.redirect('/post?status=true');
+    }
+  })
 }
 
 module.exports = Blog;
