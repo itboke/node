@@ -1,10 +1,11 @@
+
 var Blog = require('../models/mySql');
 var controller = require('../controller/exports');
 var Spider = require('../libs/spider');
 module.exports = function(router) {
 
     router.get('/',function*(next){
-        this.body = 'hello';
+        this.body = this.renderTpl('index');
     })
 
     //获取拉钩网-最新招聘信息接口
