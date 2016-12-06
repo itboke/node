@@ -1,8 +1,11 @@
-
-var Blog = require('../models/mySql');
-var controller = require('../controller/exports');
+/*
+ * @ 路由控制
+ *
+*/
+var Database = require('../libs/mysql');
 var Spider = require('../libs/spider');
 module.exports = function(router) {
+
 
     router.get('/',function*(next){
         this.body = this.renderTpl('index');
@@ -20,4 +23,36 @@ module.exports = function(router) {
         };
         this.body = JSON.stringify(json);
     })
+    //获取拉钩网-最新招聘信息接口  加参数
+    router.get('/api/getf2e/:id',function*(next){
+        var User = new Database();
+        var paramid = this.params.id;//获取url请求的动态参数
+        var url  = 'https://www.lagou.com/zhaopin/qianduankaifa/?labelWords=label';
+        var html = yield Spider.getWebSource(url);
+        var list = yield Spider.loadHtml(html);
+        var username = yield User.select('select * from user');
+        /*把招聘信息插入数据库*/
+        /*  var info = '';
+            for(var i=0;i<list.length;i++){
+                info+='("'+list[i]['data-index']+'","'+list[i]['data-salary']+'","'+list[i]['data-company']+'","'+list[i]['data-positionname']+'"),';
+            }
+            info = info.replace(/,$/,'');
+            var result = yield User.insertInfo('insert into info (id,salary,company,positionname) values '+ info +'');
+        */
+        /*把招聘信息插入数据库*/
+        var json = {
+            code: '00000',
+            msg:'获取成功',
+            admin: username || '',
+            list: list
+        };
+        this.body = JSON.stringify(json);
+    })
+
+
+    //统一404处理
+    router.get('*',function*(next){
+        this.body = '404';
+    })
+
 };
