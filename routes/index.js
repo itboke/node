@@ -4,20 +4,11 @@
 */
 var Database = require('../libs/mysql');
 var Spider = require('../libs/spider');
-var Tools  = require('../libs/tools');
+var C = require('../controller/exports');
 module.exports = function(router) {
 
-
     router.get('/',function*(next){
-        var res = yield Tools.ajaxDataFromApi({
-            method: 'get',
-            url: 'http://localhost:8081/api/getf2e',
-            data: {}
-        });
-        res = JSON.parse(res);
-        this.body = this.renderTpl('index',{
-            list: res.list
-        });
+        yield C(this,'index');
     })
 
     //获取拉钩网-最新招聘信息接口
@@ -57,7 +48,6 @@ module.exports = function(router) {
         };
         this.body = JSON.stringify(json);
     })
-
 
     //统一404处理
     router.get('*',function*(next){

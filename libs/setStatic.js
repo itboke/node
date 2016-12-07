@@ -15,7 +15,7 @@ module.exports = function(opts){
 			var ext = opts.ext || 'html';
 			var rootDir = path.resolve(process.cwd(),opts.staticDir)
 			var tplPath = rootDir + '\\' + name + '.' + ext;
-			return ejs.render(fs.readFileSync(tplPath).toString(),data);
+			this.body = ejs.render(fs.readFileSync(tplPath).toString(),data);
 		};
 		yield next;
 	};
