@@ -3,7 +3,6 @@
 
 
 var config ={
-
     page:[
         '/',
         '/user',
@@ -12,7 +11,6 @@ var config ={
         '/post',
         '/login'
     ]
-
 };
 
 module.exports = config;

@@ -10,19 +10,12 @@ log4js.configure({
 	appenders:[
 		{
 			type: 'console'
-		},
-		// {
-		// 	type: 'file',
-		// 	filename: 'logs/access.log',
-		// 	maxLogSize: 2048,
-		// 	backups:4,
-		// 	category:normal
-		// }
+		}
 	],
 	replaceConsole:true
 });
 log4js.setGlobalLogLevel(log4js.levels.INFO);
-//日志
+//日志END
 app.use(static({
 	staticDir:'views',
 	ext:'html'
