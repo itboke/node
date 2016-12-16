@@ -6,6 +6,7 @@ module.exports = function*(){
         data: {}
     });
     res = JSON.parse(res);
+    this.res.setHeader('Set-Cookie',['isVisit=1']);
     this.renderTpl('index',{
         list: res.list
     });
