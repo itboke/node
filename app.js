@@ -1,25 +1,27 @@
-var koa = require('koa');
-var app = koa();
-var router = require('koa-router')();
-var route = require('./routes/index');
-var static = require('./libs/setStatic');
-var schedule = require('./libs/schedule');
+const koa = require('koa');
+const app = new koa();
+const router = require('koa-router')();
+const route = require('./routes/index');
+const statics = require('./libs/setStatic');
+const schedule = require('./libs/schedule');
+const staticServer = require('koa-static');
 //日志
-var log4js = require('log4js');
+const log4js = require('log4js');
 log4js.configure({
-	appenders:[
+	appenders: [
 		{
 			type: 'console'
 		}
 	],
-	replaceConsole:true
+	replaceConsole: true
 });
 log4js.setGlobalLogLevel(log4js.levels.INFO);
 //日志END
-app.use(static({
-	staticDir:'views',
-	ext:'html'
-}))
+app.use(staticServer(__dirname + '/public'));
+app.use(statics({
+	staticDir: 'views',
+	ext: 'html'
+}));
 app.use(router.routes());
 route(router);
 
