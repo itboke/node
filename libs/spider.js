@@ -17,9 +17,9 @@ function getWebSource(url){
 			});
 		}).on('error',function(){
 			reject(null);
-		})
+		});
 	});
-};
+}
 function* loadHtml(html){
 	$ = cheerio.load(html);
 	var oLi  = $('.s_position_list').find('.item_con_list li');
@@ -28,7 +28,7 @@ function* loadHtml(html){
 		list.push(oLi[i]['attribs']);
 	}
 	return list;
-};
+}
 module.exports = {
 	getWebSource:getWebSource,
 	loadHtml:loadHtml

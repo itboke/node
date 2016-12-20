@@ -1,6 +1,9 @@
-import './abc';
+/*
 
-const aa = '111';
+*/
+import './home/index.less';
+import './home/abc';
+const aa = '11122243333';
 const exporst = {
 	name: 'ddd',
 	init(){

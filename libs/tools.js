@@ -14,10 +14,9 @@ function ajaxDataFromApi(opts){
 			}else{				
 				resolve(body);
 			}
-		})
-	})
-	
-};
+		});
+	});
+}
 module.exports = {
 	ajaxDataFromApi:ajaxDataFromApi
 };

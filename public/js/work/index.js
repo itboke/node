@@ -46,9 +46,14 @@
 
 	'use strict';
 
-	__webpack_require__(1);
+	__webpack_require__(3);
 
-	var aa = '111';
+	__webpack_require__(2);
+
+	/*
+
+	*/
+	var aa = '11122243333';
 	var exporst = {
 		name: 'ddd',
 		init: function init() {
@@ -58,13 +63,20 @@
 	exporst.init();
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ function(module, exports) {
 
 	'use strict';
 
 	var name = 'hee';
 	module.exports = name;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

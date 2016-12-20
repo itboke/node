@@ -1,28 +1,39 @@
 /*
  * 构建任务
- *
 */
 const path = require('path');
-var _path =  path.join(__dirname,'src');
+const _path =  path.join(__dirname, 'src');
+const Config = require('./config');
+const entry =  Config.entry();
+const ExtractTextPlugin = require("extract-text-webpack-plugin");//分离css单独打包
 module.exports = {
-    entry: './src/js/work/index.js',
-    output:{
-        filename:'index.js',
-        path:__dirname + '/public/js/work'
+    entry: entry,
+    output: {
+        filename: '[name].js',
+        path: path.join(__dirname, '/public/js/work')
     },
-    module:{
-    	loaders:[
-    		{
-    			test: /\.(js|jsx)$/,
-    			loader: "babel?presets=es2015!eslint",
-    			include: _path
-    		}
-    	]
+    module: {
+        loaders: [
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract('style-loader','css-loader!less-loader')
+            },
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'babel?presets=es2015',
+                include: _path
+            }
+        ]
     },
-    eslint:{
-        configFile:path.join(__dirname,'.eslintrc.yml')
+    // eslint: {
+    //     configFile: path.join(__dirname,'.eslintrc.yml')
+    // },
+    resolve: {
+        extensions:['','.js']
     },
-    resolve:{
-    	extensions:["",'.js']
-    }
+    plugins: [
+        new ExtractTextPlugin('public/[name].css',{
+            allChunks: true
+        })
+    ]
 };
