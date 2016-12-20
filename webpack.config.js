@@ -5,12 +5,14 @@ const path = require('path');
 const _path =  path.join(__dirname, 'src');
 const Config = require('./config');
 const entry =  Config.entry();
+const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");//分离css单独打包
+entry['vendor'] = ['jquery','react','react-dom'];//公共模块文件 全局核心
 module.exports = {
     entry: entry,
     output: {
-        filename: '[name].js',
-        path: path.join(__dirname, '/public/js/work')
+        filename: 'js/work/[name].js',
+        path: path.join(__dirname, '/public')
     },
     module: {
         loaders: [
@@ -20,20 +22,30 @@ module.exports = {
             },
             {
                 test: /\.(js|jsx)$/,
-                loader: 'babel?presets=es2015',
-                include: _path
+                loader: 'babel',
+                include: _path,
+                query: {
+                    presets: ['react','es2015']
+                }
             }
         ]
     },
+    //devtool: 'eval-source-map',
     // eslint: {
     //     configFile: path.join(__dirname,'.eslintrc.yml')
     // },
     resolve: {
-        extensions:['','.js']
+        extensions:['','.js','.jsx','.css','.less']
     },
     plugins: [
-        new ExtractTextPlugin('public/[name].css',{
+        new ExtractTextPlugin('css/[name].css',{
             allChunks: true
-        })
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            React: 'react',
+            ReactDom: 'react-dom'
+        }),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'js/core.js')
     ]
 };

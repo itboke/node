@@ -8,7 +8,7 @@ const ini  = require('../config').ini;
 */
 function logJs(name){
 	if(name === ini['coreJsName']){
-		return 'js/work/' + name + '.js';
+		return 'js/' + name + '.js';
 	}
 	return 'js/work/' + name + '.js';
 }

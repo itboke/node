@@ -1,13 +1,9 @@
 /*
-
+ * 网站首页
 */
 import './home/index.less';
-import './home/abc';
-const aa = '11122243333';
-const exporst = {
-	name: 'ddd',
-	init(){
-		console.log(aa);
-	}
-};
-exporst.init();
+import Title from './home/title.jsx';//测试
+ReactDom.render(
+	<Title title='除却巫山不是云'/>,
+	document.getElementById('example')
+);

@@ -5,3 +5,6 @@
 #### public 为webpack把src目录的文件构建目录
 #### 添加webpack模块打包功能
 #### 添加ejs自定义方法 渲染css和js文件的静态路径
+#### webpack构建js 和 构建less 到发布目录
+#### 核心js文件引入 全局react,react-dom,jquery
+	 `构建react需要loader - babel-preset-react babel-preset-es2015`
