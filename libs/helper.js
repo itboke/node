@@ -3,20 +3,21 @@
 */
 const path = require('path');
 const ini  = require('../config').ini;
+const staticField = ini.staticField;
 /*
  * return js文件路径
 */
 function logJs(name){
 	if(name === ini['coreJsName']){
-		return 'js/' + name + '.js';
+		return staticField + 'js/' + name + '.js';
 	}
-	return 'js/work/' + name + '.js';
+	return staticField + 'js/work/' + name + '.js';
 }
 /*
  * return css文件路径
 */
 function logCss(name){
-	return 'css/' + name + '.css';
+	return staticField + 'css/' + name + '.css';
 }
 /*
  * return genarator

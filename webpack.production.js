@@ -1,29 +1,30 @@
 /*
- * 构建任务
+ 生产环境的构建配件
 */
 const path = require('path');
 const _path =  path.join(__dirname, 'src');
-const Config = require('./config');
-const entry =  Config.entry();
 const production = require('./webpack.production');
 const webpack = require('webpack');
+const AssetsPlugin = require('assets-webpack-plugin'); //打包资源文件map.json 
+const assetsPluginInstance = new AssetsPlugin(
+    {
+        filename: 'assets.json',
+        path:　path.join(__dirname, 'public'),
+        prettyPrint: true
+    }
+);
 const ExtractTextPlugin = require("extract-text-webpack-plugin");//分离css单独打包
-entry['vendor'] = ['jquery','react','react-dom'];//公共模块文件 全局核心
-
-//区分本地开发构建和生产环境构建
-if(process.env && process.env.NODE_ENV === 'production'){
-    module.exports = production(entry);
-}else{
-    module.exports = {
+module.exports = (entry) => {
+    return {
         entry: entry,
         output: {
-            filename: 'js/work/[name].js',
+            filename: 'js/work/[name].[chunkhash:6].js',
             path: path.join(__dirname, '/public')
         },
         module: {
             loaders: [{
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!less-loader')
             }, {
                 test: /\.(js|jsx)$/,
                 loader: 'babel',
@@ -37,7 +38,8 @@ if(process.env && process.env.NODE_ENV === 'production'){
             extensions: ['', '.js', '.jsx']
         },
         plugins: [
-            new ExtractTextPlugin('css/[name].css', {
+            assetsPluginInstance,
+            new ExtractTextPlugin('css/[name].[chunkhash:6].css', {
                 allChunks: true
             }),
             new webpack.ProvidePlugin({
@@ -45,8 +47,7 @@ if(process.env && process.env.NODE_ENV === 'production'){
                 React: 'react',
                 ReactDom: 'react-dom'
             }),
-            new webpack.optimize.CommonsChunkPlugin('vendor', 'js/core.js')
+            new webpack.optimize.CommonsChunkPlugin('vendor', 'js/core.[chunkhash:6].js')
         ]
     };
 };
-
