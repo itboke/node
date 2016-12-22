@@ -19,7 +19,7 @@ module.exports = (entry) => {
         entry: entry,
         output: {
             filename: 'js/work/[name].[chunkhash:6].js',
-            path: path.join(__dirname, '/public')
+            path: path.join(__dirname, '/public/build')
         },
         module: {
             loaders: [{

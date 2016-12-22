@@ -9,15 +9,15 @@ const staticField = ini.staticField;
 */
 function logJs(name){
 	if(name === ini['coreJsName']){
-		return staticField + 'js/' + name + '.js';
+		return staticField + 'debug/js/' + name + '.js';
 	}
-	return staticField + 'js/work/' + name + '.js';
+	return staticField + 'debug/js/work/' + name + '.js';
 }
 /*
  * return css文件路径
 */
 function logCss(name){
-	return staticField + 'css/' + name + '.css';
+	return staticField + 'debug/css/' + name + '.css';
 }
 /*
  * return genarator

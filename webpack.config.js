@@ -18,7 +18,7 @@ if(process.env && process.env.NODE_ENV === 'production'){
         entry: entry,
         output: {
             filename: 'js/work/[name].js',
-            path: path.join(__dirname, '/public')
+            path: path.join(__dirname, '/public/debug')
         },
         module: {
             loaders: [{
