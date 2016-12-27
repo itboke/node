@@ -4,6 +4,7 @@
 const path = require('path');
 const ini  = require('../config').ini;
 const staticField = ini.staticField;
+const fs = require('fs');
 /*
  * return js文件路径
 */
@@ -17,7 +18,17 @@ function logJs(name){
  * return css文件路径
 */
 function logCss(name){
+	const mapData = getMapJson();
+	console.log(mapData);
 	return staticField + 'debug/css/' + name + '.css';
+}
+/*
+ * 读Map.JSON  线上发版
+*/
+function getMapJson(){
+	const mapPath =  path.join(__dirname,'../public/assets.json');
+	const mapData = JSON.parse(fs.readFileSync(mapPath,'utf-8'));
+	return mapData;
 }
 /*
  * return genarator
