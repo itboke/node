@@ -8,3 +8,4 @@
 ###### webpack构建js 和 构建less 到发布目录
 ###### 核心js文件引入 全局react,react-dom,jquery
 	   `构建react需要loader - babel-preset-react babel-preset-es2015`
+###### 发布环境下的静态资源加版本号

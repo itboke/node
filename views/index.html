@@ -9,14 +9,7 @@
 <body>
 	<h1 id="example">Test</h1>
 	<ul>
-		<% list.map(function(item){ %>
-		<li>
-			<div>公司:<%=item['data-company']%></div>
-			<div>薪酬:<%=item['data-salary']%></div>
-			<div>招聘职位:<%=item['data-positionname']%></div>
-		</li>
-		<br/>
-		<% }) %>
+		
 	</ul>
 	<script src="<%-logJs('core')%>"></script>
 	<script src="<%-logJs('index')%>"></script>
