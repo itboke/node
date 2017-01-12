@@ -1,7 +1,8 @@
 /*
  title compontent
 */
-
+import big from '../../../img/520.jpg';//小图片
+import small from '../../../img/common/unhappy.png';//小图片
 const Title = React.createClass({
 	//默认状态
 	getInitialState(){
@@ -17,7 +18,12 @@ const Title = React.createClass({
 	},
 	//渲染
 	render(){
-		return <div>{this.props.title}</div>;
+		return  <div>
+					<h1>{this.props.title}</h1>
+					<div><img src={big} /></div>
+					<div><img src={small} /></div>
+					<div className="bg-img"><span></span></div>
+				</div>;
 	}
 
 });

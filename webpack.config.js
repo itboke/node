@@ -18,20 +18,28 @@ if(process.env && process.env.NODE_ENV === 'production'){
         entry: entry,
         output: {
             filename: 'js/work/[name].js',
-            path: path.join(__dirname, '/public/debug')
+            path: path.join(__dirname, '/public/debug'),
+            publicPath: 'http://localhost:8081'
         },
         module: {
-            loaders: [{
-                test: /\.less$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
-            }, {
-                test: /\.(js|jsx)$/,
-                loader: 'babel',
-                include: _path,
-                query: {
-                    presets: ['react', 'es2015']
+            loaders: [
+                {
+                    test: /\.less$/,
+                    loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
+                },
+                {
+                    test: /\.(js|jsx)$/,
+                    loader: 'babel',
+                    include: _path,
+                    query: {
+                        presets: ['react', 'es2015']
+                    }
+                },
+                {
+                    test: /\.(png|jpg|gif)$/,
+                    loader: 'url-loader?limit=8192&name=/debug/img/[name].[ext]'
                 }
-            }]
+            ]
         },
         resolve: {
             extensions: ['', '.js', '.jsx']
