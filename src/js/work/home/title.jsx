@@ -1,7 +1,7 @@
 /*
  title compontent
 */
-import big from '../../../img/520.jpg';//小图片
+import big from '../../../img/520.jpg';//大图片图片
 import small from '../../../img/common/unhappy.png';//小图片
 const Title = React.createClass({
 	//默认状态

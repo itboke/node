@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "webpack": "webpack --watch --color"
+    "dev": "webpack --watch --color",
+    "build": "webpack --color production"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

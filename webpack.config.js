@@ -5,13 +5,13 @@ const path = require('path');
 const _path =  path.join(__dirname, 'src');
 const Config = require('./config');
 const entry =  Config.entry();
-const production = require('./webpack.production');
+const production = require('./webpack.production.config');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");//分离css单独打包
 entry['vendor'] = ['jquery','react','react-dom'];//公共模块文件 全局核心
 
 //区分本地开发构建和生产环境构建
-if(process.env && process.env.NODE_ENV === 'production'){
+if(process.argv && process.argv[process.argv.length - 1] === 'production'){
     module.exports = production(entry);
 }else{
     module.exports = {
@@ -19,7 +19,7 @@ if(process.env && process.env.NODE_ENV === 'production'){
         output: {
             filename: 'js/work/[name].js',
             path: path.join(__dirname, '/public/debug'),
-            publicPath: 'http://localhost:8081'
+            publicPath: '//localhost:8081/debug' //图片的路径构建
         },
         module: {
             loaders: [
@@ -37,7 +37,7 @@ if(process.env && process.env.NODE_ENV === 'production'){
                 },
                 {
                     test: /\.(png|jpg|gif)$/,
-                    loader: 'url-loader?limit=8192&name=/debug/img/[name].[ext]'
+                    loader: 'url-loader?limit=8192&name=/img/[name].[ext]'
                 }
             ]
         },

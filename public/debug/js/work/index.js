@@ -92,7 +92,7 @@ webpackJsonp([0],{
 				)
 			);
 		}
-	}); //小图片
+	}); //大图片图片
 
 
 	module.exports = Title;
@@ -103,7 +103,7 @@ webpackJsonp([0],{
 /***/ 180:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "/debug/img/520.jpg";
+	module.exports = __webpack_require__.p + "/img/520.jpg";
 
 /***/ },
 
