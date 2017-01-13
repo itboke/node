@@ -9,3 +9,5 @@
 ###### 核心js文件引入 全局react,react-dom,jquery
 	   `构建react需要loader - babel-preset-react babel-preset-es2015`
 ###### 发布环境下的静态资源加版本号
+###### 发布环境下js压缩
+###### 图片的构建和路径生成

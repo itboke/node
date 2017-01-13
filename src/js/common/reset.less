@@ -123,6 +123,7 @@ pre {
 a {
   background-color: transparent; /* 1 */
   -webkit-text-decoration-skip: objects; /* 2 */
+  text-decoration: none;
 }
 
 /**
@@ -509,4 +510,16 @@ textarea {
 
 optgroup {
   font-weight: bold;
+}
+
+/*
+ * reset padding and margin
+*/
+html,body,ul,li,h1,h2,h3,h4,h5,h6{
+  padding: 0;
+  margin: 0;
+}
+
+ul,li{
+  list-style: none;
 }

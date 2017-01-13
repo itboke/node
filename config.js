@@ -6,7 +6,7 @@ const jsSrc = path.join(__dirname, 'src/js/work');
 const ini = {
     coreJsName: 'core', //核心js库的名字
     staticField: '//127.0.0.1:8081/',
-    env: 'www'
+    env: 'local'
 };
 //webpack入口js打包文件
 function entry(){

@@ -1,12 +1,120 @@
 @import '../../common/reset.less';
 body{
-	background-color: gray;
+	background-color: #f9fafc;
 }
-.bg-img{
-	span{
-		display: block;
-		width: 86px;
-		height: 86px;
-		background: url('../../../img/cai.png') no-repeat;
+.container{
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1170px;
+}
+.site-header{
+	.navbar{
+		background-color: #fff;
+		overflow: hidden;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	}
+	.top-logo{
+		span{
+			display: block;
+			height: 68px;
+			overflow: hidden;
+			text-indent: -9999px;
+			width: 190px;
+			background-image: url('http://www.open-open.com/resource/logo.gif');
+			background-repeat: no-repeat;
+			background-position: 5px center;
+		}
+	}
+	.nav-tag{
+		height: 45px;
+		line-height: 45px;
+		background-color: #333;
+		li{
+			display: inline-block;
+			padding: 0 4px;
+		}
+		a{
+			color: #ababab;
+			padding: 5px;
+			&:hover{
+				color: #e0e0e0;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.site-main{
+	overflow: hidden;
+	.block{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.title{
+		background-color: #E8E8E8;
+		border-bottom: 2px solid #ff3c00;
+		h2{
+			display: inline-block;
+			padding: 0 25px;
+			font: 18px/44px "Microsoft Yahei";
+			color: #fff;
+			background-color: #ff3c00;
+		}
+	}
+	.list{
+		margin-left: -20px;
+		li{
+			margin-left: 20px;
+			margin-bottom: 20px;
+			float: left;
+			width: 270px;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+		}
+		img{
+			display: block;
+			width: 270px;
+			height: 160px;
+			vertical-align: top;
+		}
+		h3{
+			margin: 10px 5px;
+			font-size: 12px;
+			text-align: center;
+			overflow: hidden;
+			a{
+				color: #454545;
+			}
+		}
+		p{
+			height: 24px;
+			margin: 0 10px;
+    		font-size: 12px;
+    		color: #bfbfbf;
+    		line-height: 24px;
+		}
+		time{
+			float: left;
+		}
+		.view{
+			float: right;
+		}
+	}
+}
+.site-footer{
+	background-color: #eee;
+	padding: 35px 0;
+	.title{
+		margin-bottom: 20px;
+		padding-bottom: 8px;
+		font-size: 18px;
+		color: #666;
+		border-bottom: 1px solid #ddd;
+	}
+	p{
+		color: #888;
+	}
+	a{
+		color: #888;
 	}
 }
