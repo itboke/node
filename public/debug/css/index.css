@@ -209,6 +209,7 @@ audio:not([controls]) {
  */
 img {
   border-style: none;
+  vertical-align: top;
 }
 /**
  * Hide the overflow in IE.
@@ -454,7 +455,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   padding: 0;
   margin: 0;
 }
@@ -462,8 +464,18 @@ ul,
 li {
   list-style: none;
 }
+p {
+  line-height: 1.6;
+}
 body {
+  font-size: 12px;
   background-color: #f9fafc;
+}
+.c-gray6 {
+  color: #666;
+}
+.c-gray9 {
+  color: #999;
 }
 .container {
   padding-left: 15px;
@@ -576,4 +588,79 @@ body {
 }
 .site-footer a {
   color: #888;
+}
+.html5-main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.html5-main .box {
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+.html5-main .box .box-item {
+  border: 1px solid #d8e4e6;
+}
+.html5-main .box .box-item img {
+  width: 600px;
+}
+.html5-main .box .box-img {
+  margin-right: 20px;
+  padding: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.html5-main .box .box-info {
+  width: 508px;
+  font-size: 14px;
+}
+.html5-main .box .box-info a {
+  padding: 0 3px;
+  color: #428bca;
+}
+.html5-main .box .box-info .tags {
+  padding: 10px 0;
+  text-indent: 15px;
+}
+.html5-main .box .box-info .intro {
+  padding: 15px 15px;
+  border-top: 1px solid #d8e4e6;
+  border-bottom: 1px solid #d8e4e6;
+  background-color: #fbfafa;
+}
+.html5-main .box .box-info h4 {
+  padding-bottom: 15px;
+}
+.html5-main .content {
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 20px;
+}
+.html5-main .content .l-box {
+  width: 830px;
+  height: 500px;
+  border-top: 1px solid #d8e4e6;
+}
+.html5-main .content .r-box {
+  padding: 15px 10px;
+  width: 290px;
+  height: 500px;
+  border-top: 1px solid #d8e4e6;
+  border-left: 1px solid #d8e4e6;
+}
+.html5-main .content .r-box h4 {
+  padding: 10px 0px;
+}
+.html5-main .content .r-box h3 {
+  font-weight: normal;
+}
+.html5-main .content .r-box li {
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 12px;
+}
+.html5-main .content .r-box .thumb {
+  margin-right: 10px;
+}
+.html5-main .content .r-box a {
+  color: #428bca;
 }

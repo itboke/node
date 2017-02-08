@@ -38,6 +38,10 @@ if(process.argv && process.argv[process.argv.length - 1] === 'production'){
                 {
                     test: /\.(png|jpg|gif)$/,
                     loader: 'url-loader?limit=8192&name=/img/[name].[ext]'
+                },
+                {
+                    test: /\.(html)$/,
+                    loader: 'copyhtml?minify=false&emitPath=views'
                 }
             ]
         },

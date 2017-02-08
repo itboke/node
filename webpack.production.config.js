@@ -38,6 +38,10 @@ module.exports = (entry) => {
                 {
                     test: /\.(png|jpg|gif)$/,
                     loader: 'url-loader?limit=8192&name=/img/[name].[hash:6].[ext]'
+                },
+                {
+                    test: /\.(html)/,
+                    loader: 'copyhtml?minify=false&emitPath=views'
                 }
             ]
         },

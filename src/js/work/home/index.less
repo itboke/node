@@ -1,6 +1,14 @@
 @import '../../common/reset.less';
+//@import '../../common/iconfont.less';
 body{
+	font-size: 12px;
 	background-color: #f9fafc;
+}
+.c-gray6{
+	color: #666;
+}
+.c-gray9{
+	color: #999;
 }
 .container{
 	padding-left: 15px;
@@ -116,5 +124,80 @@ body{
 	}
 	a{
 		color: #888;
+	}
+}
+.html5-main{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	.box{
+		display: -webkit-flex;
+		display: flex;
+		flex-wrap: wrap;
+		.box-item{
+			border: 1px solid #d8e4e6;
+			img{
+				width: 600px;
+			}
+		}
+		.box-img{
+			margin-right: 20px;
+			padding: 5px;
+			box-shadow: 1px 1px 3px rgba(0,0,0,.1);
+		}
+		.box-info{
+			width: 508px;
+			font-size: 14px;
+			a{
+				padding:0 3px;
+				color: #428bca;
+			}
+			.tags{
+				padding: 10px 0;
+				text-indent: 15px;
+			}
+			.intro{
+				padding: 15px 15px;
+				border-top: 1px solid #d8e4e6;
+				border-bottom: 1px solid #d8e4e6;
+				background-color: #fbfafa;
+			}
+			h4{
+				padding-bottom: 15px;
+			}
+		}
+	}
+	.content{
+		display: -webkit-flex;
+		display: flex;
+		margin-top: 20px;
+		.l-box{
+			width: 830px;
+			height: 500px;
+			border-top: 1px solid #d8e4e6;
+		}
+		.r-box{
+			padding: 15px 10px;
+			width: 290px;
+			height: 500px;
+			border-top: 1px solid #d8e4e6;
+			border-left: 1px solid #d8e4e6;
+			h4{
+				padding: 10px 0px;
+			}
+			h3{
+				font-weight: normal;
+			}
+			li{
+				display: -webkit-flex;
+				display: flex;
+				margin-top: 12px;
+			}
+			.thumb{
+				margin-right: 10px;
+			}
+			a{
+				color: #428bca;
+			}
+		}
 	}
 }
