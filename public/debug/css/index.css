@@ -467,6 +467,19 @@ li {
 p {
   line-height: 1.6;
 }
+/*
+ * clear float
+*/
+.clearfix {
+  _zoom: 1;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
 body {
   font-size: 12px;
   background-color: #f9fafc;
@@ -524,7 +537,6 @@ body {
   margin-bottom: 20px;
 }
 .site-main .title {
-  background-color: #E8E8E8;
   border-bottom: 2px solid #ff3c00;
 }
 .site-main .title h2 {
@@ -571,6 +583,13 @@ body {
 }
 .site-main .list .view {
   float: right;
+}
+.site-main .wx-activity .activity-item {
+  float: left;
+  width: 550px;
+  height: 155px;
+  border: 2px solid #bad3ea;
+  border-radius: 4px;
 }
 .site-footer {
   background-color: #eee;
